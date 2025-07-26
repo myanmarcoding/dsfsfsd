@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVN WORLD | Urban Culture</title>
+    <link rel="icon" href="DRIVN Icon (1).png" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #222222;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 80px;
+            margin-bottom: 1.5rem;
+            filter: invert(1);
+        }
+        
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 4px;
+            color: var(--white);
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 1px;
+            background: var(--white);
+        }
+        
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 2rem;
+        }
+        
+        .country-link {
+            text-decoration: none;
+        }
+        
+        .country-btn {
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 1.2rem 0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            display: block;
+        }
+        
+        .country-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        
+        .copyright {
+            display: block;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            h2 {
+                font-size: 0.9rem;
+                letter-spacing: 4px;
+            }
+            
+            .country-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DRIVN</h1>
+        <h2>Select Territory</h2>
+        
+        <div class="country-grid">
+            <a href="Velmora-loading.html" class="country-link">
+                <button class="country-btn">Velmora</button>
+            </a>
+            <a href="Zarenthia-loading.html" class="country-link">
+                <button class="country-btn">Zarenthia</button>
+            </a>
+        </div>
+        
+        <div class="footer">
+            Website Made By Kestin Cedric Han (Myanmar Coding)<br>
+            Art By DRIVN
+            <span class="copyright">2025 DRIVN. All rights reserved. Copyright to all art.</span>
+        </div>
+    </div>
+</body>
+</html>
