@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velmora</title>
+    <link rel="icon" href="DRIVN Icon (1).png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row; /* Changed from column to row */
+            gap: 10px;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: subtle background */
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .button-link button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            white-space: nowrap; /* Prevents text wrapping */
+        }
+        
+        .button-link button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button-link button i {
+            font-size: 18px;
+        }
+        
+        /* Music control button */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .music-control:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <img src="image copy 14.png" alt="Velmora Background">
+
+    <audio id="bgMusic" loop>
+        <source src="ytdl.canehill.info - Adventure Royalty Free Medieval Fantasy Music (320 KBps) (1).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button class="music-control" id="musicToggle">
+        <i class="fas fa-music"></i>
+    </button>
+    
+    <div class="button-container">
+        <a style="text-decoration: none;" href="DRIVN Office - velmora.html" class="button-link">
+            <button><i class="fas fa-building"></i> DRIVN Office</button>
+        </a>
+        <a style="text-decoration: none;" href="DRIVN Store - Valmora.html" class="button-link">
+            <button><i class="fas fa-store"></i> DRIVN Store</button>
+        </a>
+        <a style="text-decoration: none;" href="Home-Valmora.html" class="button-link">
+            <button><i class="fas fa-home"></i> Home</button>
+        </a>
+        <a style="text-decoration: none;" href="City Streets.html" class="button-link">
+            <button><i class="fas fa-road"></i> City Streets</button>
+        </a>
+        <a style="text-decoration: none;" href="Forest-forest.html" class="button-link">
+            <button><i class="fas fa-tree"></i> Enchanted Forest</button>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            let isPlaying = false;
+
+            function attemptPlay() {
+                const playPromise = bgMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        isPlaying = true;
+                        musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    })
+                    .catch(error => {
+                        isPlaying = false;
+                        musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                        console.log("Autoplay was prevented. User interaction required.");
+                    });
+                }
+            }
+
+            attemptPlay();
+
+            musicToggle.addEventListener('click', function() {
+                if (isPlaying) {
+                    bgMusic.pause();
+                    musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                } else {
+                    bgMusic.play();
+                    musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+        });
+    </script>
+</body>
+</html>

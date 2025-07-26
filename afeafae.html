@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVN | CHECKER</title>
+    <link rel="icon" href="DRIVN Icon (1).png" type="image/x-icon"/>
+    <style>
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #222222;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-item {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .nav-item:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--white);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-item:hover:after {
+            width: 100%;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: center;
+        }
+        
+        .access-title {
+            font-size: 5vw;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        .access-subtitle {
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+        
+        .code-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .code-field {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .code-field:focus {
+            border-width: 2px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: var(--gray);
+            color: var(--white);
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .error-message {
+            color: var(--white);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .access-title {
+                font-size: 3rem;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a style="text-decoration: none; color: whitesmoke;" href="index.html">
+            <div class="logo">DRIVN</div>
+            </a>
+            <nav class="nav">
+                <a style="text-decoration: none; color: whitesmoke;" href="index.html">
+                <div class="nav-item">Home</div>
+                </a>
+                <a style="text-decoration: none; color: whitesmoke;" href="index.html">
+                <div class="nav-item">Shop</div>
+                </a>
+                <a style="text-decoration: none; color: whitesmoke;" href="index.html">
+                <div class="nav-item">About</div>
+                </a>
+                <a style="text-decoration: none; color: whitesmoke;" href="afeafae.html">
+                <div class="nav-item">Checker</div>
+                </a>
+                <a style="text-decoration: none; color: whitesmoke;" href="drivn.html">
+                <div class="nav-item">DRIVN WORLD</div>
+                </a>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            <h1 class="access-title">Checker</h1>
+            <p class="access-subtitle">ENTER YOUR CODE BELOW</p>
+            
+            <div class="code-input">
+                <input type="text" class="code-field" placeholder="XXXX-XXXX-XXXX" maxlength="14">
+                <button class="submit-btn">Submit</button>
+                <p class="error-message">Invalid code. Please try again.</p>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <div>© 2025 DRIVN</div>
+            <div>EST. 2025</div>
+        </footer>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const codeField = document.querySelector('.code-field');
+    const submitBtn = document.querySelector('.submit-btn');
+    const errorMessage = document.querySelector('.error-message');
+
+    codeField.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/-/g, '');
+        if (value.length > 0) {
+            value = value.match(new RegExp('.{1,4}', 'g')).join('-');
+        }
+        e.target.value = value;
+    });
+
+    const accessCodes = {
+        '7K9F-2R4M-PQ61': '7K9F-2R4M-PQ61.html',  
+        'B3N8-DY5T-9XW4': 'B3N8-DY5T-9XW4.html',  
+        '4LZ7-KJ2H-8G3Q': '4LZ7-KJ2H-8G3Q.html',
+        'T6V1-9M8C-F5XR': 'T6V1-9M8C-F5XR.html'          
+    };
+
+    submitBtn.addEventListener('click', function() {
+        const enteredCode = codeField.value.trim();
+        
+        if (accessCodes[enteredCode]) {
+            window.location.href = accessCodes[enteredCode];
+        } else {
+            errorMessage.style.display = 'block';
+            codeField.style.borderColor = 'red';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+                codeField.style.borderColor = 'white';
+            }, 3000);
+        }
+    });
+
+    codeField.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            submitBtn.click();
+        }
+    });
+});
+    </script>
+</body>
+</html>
