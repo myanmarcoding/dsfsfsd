@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVN | STAY DRIVN - Premium Streetwear</title>
+    <link rel="icon" href="DRIVN Icon (1).png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #111111;
+            --white: #ffffff;
+            --gray: #333333;
+            --light-gray: #f5f5f5;
+            --accent: #ff3e00;
+            --accent-dark: #e03500;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            font-size: 32px;
+            letter-spacing: 3px;
+            text-decoration: none;
+            color: var(--black);
+            position: relative;
+        }
+        
+        .logo:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .logo:hover:after {
+            transform: scaleX(1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 50%;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border: 2px solid var(--black);
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--white);
+            border-color: var(--accent);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--black);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            color: var(--white);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 80%;
+            background-image: url('https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-hover);
+            border-radius: 8px;
+        }
+        
+        /* Featured Section */
+        .featured {
+            padding: 100px 5%;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        /* Enhanced Product Card Styles */
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: left;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+        
+        .product-info {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-to-cart-btn {
+            padding: 12px 24px;
+            background-color: var(--black);
+            color: var(--white);
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border-radius: 4px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: var(--accent);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 5%;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%23ff3e00" opacity="0.05"/><rect width="50" height="50" x="50" y="50" fill="%23ff3e00" opacity="0.05"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about h2 {
+            color: var(--white);
+        }
+        
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 100px 5%;
+            text-align: center;
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%23ff3e00" opacity="0.05"/><rect width="50" height="50" x="50" y="50" fill="%23ff3e00" opacity="0.05"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            position: relative;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 18px;
+            border: 2px solid var(--black);
+            font-size: 16px;
+            outline: none;
+            font-weight: 500;
+        }
+        
+        .newsletter-btn {
+            padding: 18px 30px;
+            background-color: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 80px 5% 30px;
+            background-color: var(--black);
+            color: var(--white);
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%23ff3e00" opacity="0.05"/><rect width="50" height="50" x="50" y="50" fill="%23ff3e00" opacity="0.05"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-column {
+            width: 23%;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            bottom: -8px;
+            left: 0;
+            background-color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        
+        /* Featured Collection Banner */
+        .collection-banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            margin-bottom: 80px;
+        }
+        
+        .collection-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .collection-banner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .collection-banner h2 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .collection-banner p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        /* Product Labels */
+        .product-labels {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }
+        
+        .product-label {
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            color: var(--white);
+        }
+        
+        .label-new {
+            background-color: var(--accent);
+        }
+        
+        .label-sale {
+            background-color: #00a651;
+        }
+        
+        .label-limited {
+            background-color: #ff0000;
+        }
+        
+        /* Size Guide Link */
+        .size-guide-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+        }
+        
+        .size-guide-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 60px;
+            }
+            
+            .hero-content {
+                width: 60%;
+            }
+            
+            .hero-image {
+                width: 35%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
+                padding: 80px 30px 30px;
+                transform: translateX(-100%);
+                transition: var(--transition);
+                z-index: 1000;
+                flex-direction: column;
+            }
+            
+            nav.active {
+                transform: translateX(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding: 100px 20px 80px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                width: 100%;
+                margin-bottom: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 30px;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .footer-column {
+                width: 48%;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                margin-bottom: 10px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .collection-banner h2 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                width: 100%;
+            }
+            
+            .collection-banner h2 {
+                font-size: 36px;
+            }
+            
+            .collection-banner p {
+                font-size: 16px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">DRIVN</a>
+        <button class="mobile-menu-btn">☰</button>
+        <nav>
+            <ul>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#size-guide">Size Guide</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>DRIVN BY PASSION. BE YOURSELF.</h1>
+            <p>Built for those who move with purpose. Streetwear made for the urban explorer.</p>
+            <div>
+                <a href="#shop" class="btn">Shop Now</a>
+                <a href="#about" class="btn btn-outline">Our Story</a>
+            </div>
+        </div>
+        <div class="hero-image fade-in delay-1"></div>
+    </section>
+
+    <div class="collection-banner" style="background-image: url('https://htmlcolorcodes.com/assets/images/colors/dark-red-color-solid-background-1920x1080.png');">
+        <div class="collection-banner-content">
+            <h2>25 CLOUDS RELEASE</h2>
+            <p>Limited edition streetwear designed for the bold and the brave. Available now.</p>
+            <a href="#shop" class="btn">Shop The Drop</a>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <section class="featured" id="shop">
+        <h2 class="section-title">LATEST DROPS</h2>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card fade-in">
+                <div class="product-labels">
+                    <span class="product-label label-new">New</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="dsdadw.png" alt="ELEVATE Jersey" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">ELEVATE Jersey</h3>
+                    <p class="product-price">100,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card fade-in delay-1">
+                <div class="product-labels">
+                    <span class="product-label label-sale">Bestseller</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="Look Mom I can Fly.png" alt="FG Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">FLY GIES Tee</h3>
+                    <p class="product-price">75,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card fade-in delay-2">
+                <div class="product-labels">
+                    <span class="product-label label-limited">25 CLOUDS RELEASE</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="image copy 8.png" alt="MDE TEE" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">MELT DOWN ERA TEE</h3>
+                    <p class="product-price">65,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card fade-in delay-3">
+                <div class="product-labels">
+                    <span class="product-label label-limited">25 CLOUDS RELEASE</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="Money White.png" alt="Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">ALMS YEED TEE</h3>
+                    <p class="product-price">70,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card fade-in">
+                <div class="product-labels">
+                    <span class="product-label label-limited">25 CLOUDS RELEASE</span>
+                </div>
+                <div class="product-image-container">
+                    <img src="FULL SPEED FAITH - Front.png" alt="Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">FULL SPEED FAITH</h3>
+                    <p class="product-price">60,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="image copy 6.png" alt="Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">BE DRIVN</h3>
+                    <p class="product-price">70,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="DSR Back Black.png" alt="Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">DSE</h3>
+                    <p class="product-price">55,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="PAE Front.png" alt="Tee" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">PAEBD</h3>
+                    <p class="product-price">50,000 Kyat</p>
+                    <a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL">
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">Buy Now</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#size-guide" class="size-guide-link">SIZE GUIDE →</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content fade-in">
+            <h2 class="section-title">OUR DRIVN</h2>
+            <p>Founded by Kestin Cedric Han with the support and creative drive of Diego and Donnix, DRIVN began as more than just a clothing line. It started as a movement. Born from passion and built on purpose, we don't follow trends. We create pieces for people who choose to walk their own path, speak their truth, and wear what reflects who they are.</p>
+            <p>DRIVN is all about minimal black and white streetwear made for the bold, the restless, and the originals. We're here for those who stay real, stay raw, and stay true to themselves.</p>
+            <p style="font-weight: bold; color: var(--accent);">STAY DRIVN.</p>
+            <a href="#shop" class="btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content fade-in">
+            <h2 class="section-title">STAY DRIVN</h2>
+            <p>Subscribe for exclusive drops, early access, and 10% off your first order.</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>DRIVN</h3>
+                <p>BE YOURSELF. BE DRIVN.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/drivnclothes/profilecard/?igsh=MTh5aGJkNjMwN3EwZw=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@drivnclothes"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61577988812563&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#shop">All Products</a></li>
+                    <li><a href="#shop">New Arrivals</a></li>
+                    <li><a href="#shop">Bestsellers</a></li>
+                    <li><a href="#shop">Limited Edition</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:drivnclothes@gmail.com">drivnclothes@gmail.com</a></li>
+                    <li><a href="tel:+959796200867">+95 9 796 200 867</a></li>
+                    <li>Yangon, Myanmar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 DRIVN. All rights reserved. Powered By Myanmar Coding</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                nav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '☰';
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            alert(`Thanks for subscribing with ${email}! You'll receive 10% off your first order.`);
+            newsletterForm.reset();
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                // Trigger reflow to restart animation
+                void el.offsetWidth;
+                el.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+</html>
